@@ -1,4 +1,4 @@
-package com.mycompany.pruebafinal;
+package com.reproductor.proyectofinal;
 
 
 public class Ejecutable {

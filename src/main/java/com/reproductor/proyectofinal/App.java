@@ -1,4 +1,4 @@
-package com.mycompany.pruebafinal;
+package com.reproductor.proyectofinal;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
