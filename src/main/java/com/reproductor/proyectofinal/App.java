@@ -1,5 +1,6 @@
 package com.reproductor.proyectofinal;
 
+import com.reproductor.proyectofinal.model.Reproductor;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class App extends Application {
 
@@ -29,6 +32,13 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        try {
+            Reproductor miReproductor = new Reproductor();
+            miReproductor.abrirFichero("MusicaReproductor\\1.mp3");
+            miReproductor.Play();
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex);
+        }
         launch();
     }
 

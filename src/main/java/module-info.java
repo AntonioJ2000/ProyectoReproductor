@@ -4,6 +4,7 @@ module com.reproductor.proyectofinal {
     requires java.sql;
     requires java.xml.bind;
     requires java.base;
+    requires basicplayer;
     
     opens com.reproductor.proyectofinal.model to java.xml.bind;
     opens com.reproductor.proyectofinal.controller to javafx.fxml;
