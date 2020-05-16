@@ -12,7 +12,8 @@ public class Reproductor {
         player = new BasicPlayer();
     }
      
-    public void Play() throws Exception {
+    public void Play(String ruta) throws Exception {
+        abrirFichero(ruta);
         player.play();
     }
     

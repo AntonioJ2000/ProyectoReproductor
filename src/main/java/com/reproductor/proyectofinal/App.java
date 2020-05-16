@@ -34,8 +34,7 @@ public class App extends Application {
     public static void main(String[] args) {
         try {
             Reproductor miReproductor = new Reproductor();
-            miReproductor.abrirFichero("MusicaReproductor\\1.mp3");
-            miReproductor.Play();
+            miReproductor.Play("MusicaReproductor\\1.mp3");
         } catch (Exception ex) {
             System.out.println("Error: " + ex);
         }
