@@ -1,15 +1,15 @@
 package com.reproductor.proyectofinal.model;
 
 public class Song {
-    private int IDCancion;
-    private String Titulo;
-    private String Estilo;
-    private String nombreProductor;
+    protected int IDCancion;
+    protected String titulo;
+    protected String estilo;
+    protected String nombreProductor;
 
     public Song(int IDCancion, String Titulo, String Estilo, String nombreProductor) {
         this.IDCancion = IDCancion;
-        this.Titulo = Titulo;
-        this.Estilo = Estilo;
+        this.titulo = Titulo;
+        this.estilo = Estilo;
         this.nombreProductor = nombreProductor;
     }
 
@@ -26,19 +26,19 @@ public class Song {
     }
 
     public String getTitulo() {
-        return Titulo;
+        return titulo;
     }
 
     public void setTitulo(String Titulo) {
-        this.Titulo = Titulo;
+        this.titulo = Titulo;
     }
 
     public String getEstilo() {
-        return Estilo;
+        return estilo;
     }
 
     public void setEstilo(String Estilo) {
-        this.Estilo = Estilo;
+        this.estilo = Estilo;
     }
 
     public String getNombreProductor() {
@@ -51,7 +51,7 @@ public class Song {
 
     @Override
     public String toString() {
-        return "Song{" + "IDCancion=" + IDCancion + ", Titulo=" + Titulo + ", Estilo=" + Estilo + ", nombreProductor=" + nombreProductor + '}';
+        return "Song{" + "IDCancion=" + IDCancion + ", Titulo=" + titulo + ", Estilo=" + estilo + ", nombreProductor=" + nombreProductor + '}';
     }
     
     

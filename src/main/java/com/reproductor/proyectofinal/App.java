@@ -21,6 +21,7 @@ public class App extends Application {
         rootstage=stage;
         scene = new Scene(loadFXML("LoginScreen"), 500, 600);
         stage.setScene(scene);
+        rootstage.setTitle("Music 24/7");
         stage.show();
     }
 
@@ -30,13 +31,6 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        /**try {
-            Reproductor miReproductor = new Reproductor();
-            miReproductor.Play("MusicaReproductor\\1.mp3");
-        } catch (Exception ex) {
-            System.out.println("Error: " + ex);
-        } 
-        **/
         launch();
     }
 

@@ -15,7 +15,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Connection {
 
-    //@XmlElement(name="host")
     private String host;
     private String db;
     private String user;

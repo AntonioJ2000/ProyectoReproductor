@@ -3,22 +3,23 @@ package com.reproductor.proyectofinal.model;
 import java.util.List;
 
 public class User {
-   private int IDUsuario;
-   private String Nombre;
-   private String Password;
-   private String Pais;
-   private String estiloFavorito;
-   private String artistaFav;
-   private List<User> ListaDeAmigos;
+   protected int IDUsuario;
+   protected String Nombre;
+   protected String Password;
+   protected String Pais;
+   protected String estiloFavorito;
+   protected String artistaFav;
 
-    public User(int IDUsuario, String Nombre, String Password, String Pais, String estiloFavorito, String artistaFav, List<User> ListaDeAmigos) {
+    public User() {
+    }
+
+    public User(int IDUsuario, String Nombre, String Password, String Pais, String estiloFavorito, String artistaFav) {
         this.IDUsuario = IDUsuario;
         this.Nombre = Nombre;
         this.Password = Password;
         this.Pais = Pais;
         this.estiloFavorito = estiloFavorito;
         this.artistaFav = artistaFav;
-        this.ListaDeAmigos = ListaDeAmigos;
     }
 
     public int getIDUsuario() {
@@ -69,17 +70,11 @@ public class User {
         this.artistaFav = artistaFav;
     }
 
-    public List<User> getListaDeAmigos() {
-        return ListaDeAmigos;
-    }
-
-    public void setListaDeAmigos(List<User> ListaDeAmigos) {
-        this.ListaDeAmigos = ListaDeAmigos;
-    }
+ 
 
     @Override
     public String toString() {
-        return "User{" + "IDUsuario=" + IDUsuario + ", Nombre=" + Nombre + ", Password=" + Password + ", Pais=" + Pais + ", estiloFavorito=" + estiloFavorito + ", artistaFav=" + artistaFav + ", ListaDeAmigos=" + ListaDeAmigos + '}';
+        return "User{" + "IDUsuario=" + IDUsuario + ", Nombre=" + Nombre + ", Password=" + Password + ", Pais=" + Pais + ", estiloFavorito=" + estiloFavorito + ", artistaFav=" + artistaFav + '}';
     }
    
 }
