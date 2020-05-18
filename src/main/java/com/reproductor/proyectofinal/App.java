@@ -14,16 +14,14 @@ import java.util.logging.Logger;
 public class App extends Application {
 
     private static Scene scene;
+    public static Stage rootstage;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("MainScreen"), 1280, 720);
+        rootstage=stage;
+        scene = new Scene(loadFXML("LoginScreen"), 500, 600);
         stage.setScene(scene);
         stage.show();
-    }
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -32,12 +30,13 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        try {
+        /**try {
             Reproductor miReproductor = new Reproductor();
             miReproductor.Play("MusicaReproductor\\1.mp3");
         } catch (Exception ex) {
             System.out.println("Error: " + ex);
-        }
+        } 
+        **/
         launch();
     }
 

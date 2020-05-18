@@ -5,11 +5,18 @@ import java.io.File;
 
 
 public class Reproductor {
-     private final BasicPlayer player;    
-
+    private static Reproductor instance = null;
+    private BasicPlayer player;
     
-    public Reproductor() {
+    private Reproductor(){
         player = new BasicPlayer();
+    }
+     
+    public static Reproductor getInstance(){
+        if(instance == null){
+            instance = new Reproductor();
+        }
+        return instance;
     }
      
     public void Play(String ruta) throws Exception {
@@ -17,7 +24,7 @@ public class Reproductor {
         player.play();
     }
     
-    public void abrirFichero(String ruta) throws Exception {
+    private void abrirFichero(String ruta) throws Exception {
         player.open(new File(ruta));
     }
     
@@ -32,5 +39,4 @@ public class Reproductor {
     public void Stop() throws Exception {
         player.stop();
     }
-    
 }
