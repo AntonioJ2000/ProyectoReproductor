@@ -33,14 +33,14 @@ public class LoginScreenController implements Initializable{
         Image image = new Image("file:images\\icon.png");
         imageview.setImage(image);
         
-        /*  
+        /* 
         List<Song> songs = SongDAO.selectAll();
         System.out.println(songs);
-        
+        */
         
         List<User> users = UserDAO.selectAll();
         System.out.println(users);
-        */
+        
     }
 
     public void OpenRegisterWindows() {

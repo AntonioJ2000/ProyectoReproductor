@@ -153,6 +153,7 @@ public class UserDAO extends User implements I_UserDAO {
                 User u = new User();
                 u.setIDUsuario(rs.getInt("IDUsuario"));
                 u.setNombre(rs.getString("Nombre"));
+                u.setPassword(rs.getString("Password"));
                 u.setPais(rs.getString("Pais"));
                 u.setEstiloFavorito(rs.getString("estiloFav"));
                 u.setArtistaFav(rs.getString("artistaFav"));
