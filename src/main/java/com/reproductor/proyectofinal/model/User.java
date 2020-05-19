@@ -11,6 +11,7 @@ public class User {
    protected String artistaFav;
 
     public User() {
+        this(0, "", "", "", "", "");
     }
 
     public User(int IDUsuario, String Nombre, String Password, String Pais, String estiloFavorito, String artistaFav) {

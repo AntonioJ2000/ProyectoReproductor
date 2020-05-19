@@ -38,6 +38,32 @@ public class UserDAO extends User implements I_UserDAO {
         artistaFav = u.artistaFav;
     }
 
+    public UserDAO(int IDUsuario){
+        super();
+        
+        try {
+            java.sql.Connection conn = ConnectionUtil.getConnection();
+            String q="SELECT * FROM Usuario WHERE IDUsuario="+IDUsuario;
+            PreparedStatement ps=conn.prepareStatement(q);
+            ResultSet rs = ps.executeQuery();
+            if (rs != null) {
+                if (rs.next()) {
+                    this.IDUsuario=IDUsuario;
+                    this.Nombre=rs.getString("Nombre");
+                    this.Password=rs.getString("Password");
+                    this.Pais=rs.getString("Pais");
+                    this.estiloFavorito=rs.getString("estiloFav");
+                    this.artistaFav=rs.getString("artistaFav");
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }
+    
+    
+    
     public void persist() {
         persist = true;
     }
@@ -94,7 +120,7 @@ public class UserDAO extends User implements I_UserDAO {
         if (this.IDUsuario > 0) {
 
             //UPDATE
-            String q = "UPDATE usuario SET Nombre = ?, Password = ?, Pais = ?, estiloFav = ?, artistaFav = ? WHERE IDUsuario = ?";
+            String q = "UPDATE Usuario SET Nombre = ?, Password = ?, Pais = ?, estiloFav = ?, artistaFav = ? WHERE IDUsuario = ?";
             PreparedStatement ps = csql.prepareStatement(q);
             ps.setString(1, Nombre);
             ps.setString(2, Password);
@@ -105,7 +131,7 @@ public class UserDAO extends User implements I_UserDAO {
         } else {
 
             //INSERT
-            String q = "INSERT INTO usuario (IDUsuario, Nombre, Password, Pais, estiloFav, artistaFav) VALUES (NULL, ?,?,?,?,?)";
+            String q = "INSERT INTO Usuario(IDUsuario, Nombre, Password, Pais, estiloFav, artistaFav) VALUES(NULL,?,?,?,?,?)";
             PreparedStatement ps = csql.prepareStatement(q, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, Nombre);
             ps.setString(2, Password);
