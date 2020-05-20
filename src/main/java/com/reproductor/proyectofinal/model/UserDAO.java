@@ -1,5 +1,6 @@
 package com.reproductor.proyectofinal.model;
 
+import com.reproductor.proyectofinal.controller.LoginScreenController;
 import com.reproductor.proyectofinal.utils.ConnectionUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,21 +13,22 @@ import java.util.logging.Logger;
 
 public class UserDAO extends User implements I_UserDAO {
 
-    private boolean persist;
+    
+    public static UserDAO MainUser;
 
     public UserDAO() {
         super();
-        persist = false;
+        
     }
 
     public UserDAO(int IDUsuario, String nombre, String password, String pais, String estiloFavorito, String artistaFav) {
         super(IDUsuario, nombre, password, pais, estiloFavorito, artistaFav);
-        persist = false;
+        
     }
 
     public UserDAO(String nombre, String password, String pais, String estiloFavorito, String artistaFav) {
         super(-1, nombre, password, pais, estiloFavorito, artistaFav);
-        persist = false;
+        
     }
 
     public UserDAO(User u) {
@@ -61,64 +63,46 @@ public class UserDAO extends User implements I_UserDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
-    
-    
-    
-    public void persist() {
-        persist = true;
-    }
 
-    public void detatch() {
-        persist = false;
-    }
+    
+  
 
     @Override
     public void setNombre(String nombre) {
-        super.setNombre(nombre);
-        if (persist) {
-            save();
-        }
+        super.setNombre(nombre);     
+        save();
     }
 
     @Override
     public void setPassword(String password) {
-        super.setPassword(password);
-        if (persist) {
-            save();
-        }
-
+        super.setPassword(password); 
+        save();
     }
 
     @Override
     public void setPais(String pais) {
         super.setPais(pais);
-        if (persist) {
-            save();
-        }
+        save();
     }
 
     @Override
     public void setEstiloFavorito(String estiloFavorito) {
         super.setEstiloFavorito(estiloFavorito);
-        if (persist) {
-            save();
-        }
+        save();
     }
 
-    public void setArtistaFavorito(String artistaFavorito) {
+    @Override
+    public void setArtistaFav(String artistaFavorito) {
         super.setArtistaFav(artistaFavorito);
-        if (persist) {
-            save();
-        }
+        save();
     }
 
 
     public int save() {
-        int result = -1;
+        int result = 0;
         try {
         java.sql.Connection csql = ConnectionUtil.getConnection();
         if (this.IDUsuario > 0) {
-
             //UPDATE
             String q = "UPDATE Usuario SET Nombre = ?, Password = ?, Pais = ?, estiloFav = ?, artistaFav = ? WHERE IDUsuario = ?";
             PreparedStatement ps = csql.prepareStatement(q);
@@ -127,7 +111,9 @@ public class UserDAO extends User implements I_UserDAO {
             ps.setString(3, Pais);
             ps.setString(4, estiloFavorito);
             ps.setString(5, artistaFav);
-
+            ps.setInt(6, MainUser.IDUsuario);
+            
+            result = ps.executeUpdate();
         } else {
 
             //INSERT
@@ -139,6 +125,7 @@ public class UserDAO extends User implements I_UserDAO {
             ps.setString(4, estiloFavorito);
             ps.setString(5, artistaFav);
             result = ps.executeUpdate();
+            System.out.println(result);
             try(ResultSet generatedKeys = ps.getGeneratedKeys()){
                 if(generatedKeys.next()){
                     result = generatedKeys.getInt(1);
@@ -193,4 +180,38 @@ public class UserDAO extends User implements I_UserDAO {
     } 
         return result;
     }
+    
+    public static boolean Login(String nombreUsuario, String passwordUsuario){
+        boolean result = false;
+        try {
+            java.sql.Connection conn = ConnectionUtil.getConnection();
+            String q = "SELECT*from Usuario WHERE nombre LIKE ? and password LIKE ?";
+
+            PreparedStatement ps = conn.prepareStatement(q);
+            ps.setString(1, nombreUsuario);
+            ps.setString(2, passwordUsuario);
+                                            
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                if (rs.getString("Nombre").trim().length() > 0) {
+                    User mainUser = new User();
+                    mainUser.setIDUsuario(rs.getInt("IDUsuario"));
+                    mainUser.setNombre(rs.getString("Nombre"));
+                    mainUser.setPassword(rs.getString("Password"));
+                    mainUser.setPais(rs.getString("Pais"));
+                    mainUser.setEstiloFavorito(rs.getString("estiloFav"));
+                    mainUser.setArtistaFav(rs.getString("artistaFav"));   
+                    UserDAO daoAux = new UserDAO(mainUser);
+                    MainUser = daoAux;
+                    result = true;
+                }
+            } 
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
+    
 }

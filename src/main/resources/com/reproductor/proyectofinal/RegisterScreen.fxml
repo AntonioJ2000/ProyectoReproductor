@@ -26,7 +26,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="29.0" layoutY="22.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: ABFFB5;" text="Salir" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+      <Button layoutX="29.0" layoutY="22.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: orange;" text="Salir" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
          <font>
             <Font size="13.0" />
          </font>
@@ -42,7 +42,7 @@
          </font>
       </Text>
       <Text layoutX="307.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Los datos introducidos podrán ser modificados posteriormente" textAlignment="CENTER" wrappingWidth="249.349609375" />
-      <Text layoutX="264.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRO">
+      <Text layoutX="257.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Regístrate">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

@@ -15,7 +15,7 @@
 
 <AnchorPane id="AnchorPane" cacheShape="false" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #FEFFD1;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reproductor.proyectofinal.controller.LoginScreenController">
    <children>
-      <TextField layoutX="201.0" layoutY="329.0" prefHeight="25.0" prefWidth="200.0" style="-fx-border-color: orange;">
+      <TextField fx:id="nombreUsuario" layoutX="201.0" layoutY="329.0" prefHeight="25.0" prefWidth="200.0" style="-fx-border-color: orange;">
          <effect>
             <Blend opacity="0.0" />
          </effect></TextField>
@@ -44,7 +44,7 @@
             </DisplacementMap>
          </effect>
       </Button>
-      <PasswordField layoutX="201.0" layoutY="385.0" prefHeight="25.0" prefWidth="235.0" style="-fx-border-color: orange;">
+      <PasswordField fx:id="passwordUsuario" layoutX="201.0" layoutY="385.0" prefHeight="25.0" prefWidth="235.0" style="-fx-border-color: orange;">
          <effect>
             <Blend opacity="0.0" />
          </effect></PasswordField>

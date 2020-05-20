@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.image.Image;
 
 public class App extends Application {
 
@@ -22,6 +23,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("LoginScreen"), 500, 600);
         stage.setScene(scene);
         rootstage.setTitle("Music 24/7");
+        stage.getIcons().add(new Image("file:images\\icon.png"));
         stage.show();
     }
 
@@ -30,6 +32,7 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
+    
     public static void main(String[] args) {
         launch();
     }

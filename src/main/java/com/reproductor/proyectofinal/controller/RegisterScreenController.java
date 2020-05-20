@@ -71,7 +71,7 @@ public class RegisterScreenController implements Initializable {
             }
         } else {
             if (parent != null) {
-                parent.showWarning("Error de validación", "Corrija el siguiente error", "Tanto el campo 'Nombre', 'Contraseña' como 'País' no deben quedar vacíos");
+                parent.showWarning("Error de validación", "Corrija el siguiente error:", "Tanto el campo 'Nombre', 'Contraseña' como 'País' no deben quedar vacíos");
             }
         }
     }

@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reproductor.proyectofinal.controller.MainScreenController">
+   <children>
+      <TabPane prefHeight="720.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Perfil">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: FFF2D0;">
+                     <children>
+                        <TextField fx:id="nombre" layoutX="370.0" layoutY="271.0" prefHeight="25.0" prefWidth="209.0" promptText="Escribe tu nombre aquí" />
+                        <TextField fx:id="estiloFav" layoutX="671.0" layoutY="271.0" prefHeight="25.0" prefWidth="208.0" promptText="Pop, Reggaeton, EDM ¿Quizás?" />
+                        <TextField fx:id="password" layoutX="369.0" layoutY="358.0" prefHeight="25.0" prefWidth="210.0" promptText="***************" />
+                        <TextField fx:id="pais" layoutX="369.0" layoutY="448.0" prefHeight="25.0" prefWidth="210.0" promptText="¿De dónde eres?" />
+                        <TextField fx:id="artistaFav" layoutX="670.0" layoutY="358.0" prefHeight="25.0" prefWidth="209.0" promptText="Escribe tu artista favorito" />
+                        <Text layoutX="371.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" />
+                        <Text layoutX="670.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Género favorito:" />
+                        <Text layoutX="370.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
+                        <Text layoutX="671.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artista favorito:" />
+                        <Text layoutX="371.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="País:" />
+                        <Button layoutX="731.0" layoutY="446.0" mnemonicParsing="false" onAction="#editUser" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: orange;" text="Actualizar" />
+                        <Text layoutX="573.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar perfil">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Canciones">
+            <content>
+              <AnchorPane blendMode="MULTIPLY" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: FFE498;">
+                     <children>
+                        <TableView fx:id="table" layoutY="-2.0" prefHeight="695.0" prefWidth="943.0" style="-fx-background-color: FFE498;">
+                          <columns>
+                            <TableColumn fx:id="ProducerColumn" editable="false" prefWidth="322.0" resizable="false" style="-fx-background-color: FFE498; -fx-padding: 7;" text="Artista" />
+                            <TableColumn fx:id="titleColumn" editable="false" prefWidth="324.0" resizable="false" style="-fx-background-color: FFE498; -fx-padding: 7;" text="Título" />
+                              <TableColumn fx:id="StyleColumn" editable="false" prefWidth="295.0" resizable="false" style="-fx-background-color: FFE498; -fx-padding: 7;" text="Estilo" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>
