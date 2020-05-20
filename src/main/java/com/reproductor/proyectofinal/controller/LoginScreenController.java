@@ -47,6 +47,7 @@ public class LoginScreenController implements Initializable {
 
     private ObservableList<User> data;
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Image image = new Image("file:images\\icon.png");
@@ -106,6 +107,7 @@ public class LoginScreenController implements Initializable {
 
             Stage modalStage = new Stage();
             modalStage.setTitle("Music 24/7");
+            modalStage.getIcons().add(new Image("file:images\\icon.png"));
             modalStage.initModality(Modality.APPLICATION_MODAL);
             modalStage.initOwner(App.rootstage);
 
