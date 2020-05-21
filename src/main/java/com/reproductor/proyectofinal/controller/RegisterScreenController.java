@@ -55,11 +55,16 @@ public class RegisterScreenController implements Initializable {
     @FXML
     private void add() {
         String nombre = this.Nombre.getText();
+        Nombre.clear();
         String password = this.Contrasena.getText();
+        Contrasena.clear();
         String pais = this.Pais.getText();
+        Pais.clear();
         String estiloFav = this.estiloFavorito.getText();
+        estiloFavorito.clear();
         String artistaFav = this.artistaFavorito.getText();
-
+        artistaFavorito.clear();
+        
         if (nombre.trim().length() > 0 && password.trim().length() > 0 && pais.trim().length() > 0) {
             User newUser = new User(0, nombre, password, pais, estiloFav, artistaFav);
             if (parent != null) {
@@ -67,7 +72,7 @@ public class RegisterScreenController implements Initializable {
             }
             if (this.myStage != null) {
                 this.myStage.close();
-                parent.showConfirm(nombre);
+                parent.showInfo(nombre);
             }
         } else {
             if (parent != null) {

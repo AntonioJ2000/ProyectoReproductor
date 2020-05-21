@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,12 +17,12 @@
    <children>
       <TabPane prefHeight="720.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Perfil">
+          <Tab style="-fx-background-color: FFF2D0;" text="Perfil">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: FFF2D0;">
                      <children>
                         <TextField fx:id="nombre" layoutX="370.0" layoutY="271.0" prefHeight="25.0" prefWidth="209.0" promptText="Escribe tu nombre aquí" />
-                        <TextField fx:id="estiloFav" layoutX="671.0" layoutY="271.0" prefHeight="25.0" prefWidth="208.0" promptText="Pop, Reggaeton, EDM ¿Quizás?" />
+                        <TextField fx:id="estiloFav" layoutX="671.0" layoutY="271.0" prefHeight="25.0" prefWidth="208.0" promptText="Pop, Reggaeton, EDM, ¡Cuéntanos!" />
                         <TextField fx:id="password" layoutX="369.0" layoutY="358.0" prefHeight="25.0" prefWidth="210.0" promptText="***************" />
                         <TextField fx:id="pais" layoutX="369.0" layoutY="448.0" prefHeight="25.0" prefWidth="210.0" promptText="¿De dónde eres?" />
                         <TextField fx:id="artistaFav" layoutX="670.0" layoutY="358.0" prefHeight="25.0" prefWidth="209.0" promptText="Escribe tu artista favorito" />
@@ -29,17 +31,31 @@
                         <Text layoutX="370.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
                         <Text layoutX="671.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artista favorito:" />
                         <Text layoutX="371.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="País:" />
-                        <Button layoutX="731.0" layoutY="446.0" mnemonicParsing="false" onAction="#editUser" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: orange;" text="Actualizar" />
+                        <Button layoutX="596.0" layoutY="514.0" mnemonicParsing="false" onAction="#editUser" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: orange;" text="Actualizar">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                         <Text layoutX="573.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar perfil">
                            <font>
                               <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Hyperlink layoutX="1133.0" layoutY="650.0" onAction="#deleteProfile" text="Eliminar mi cuenta" textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Text layoutX="18.0" layoutY="669.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Si no está contento con el servicio que presta esta aplicación, puede eliminar su cuenta (presionando el boton &quot;Eliminar mi cuenta&quot;) y los datos serán completamente borrados del sistema" />
+                        <Text layoutX="660.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Si el campo queda vacío, no se modificará  el parámetro" textAlignment="CENTER" wrappingWidth="228.2109375">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
                            </font>
                         </Text>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Canciones">
+          <Tab style="-fx-background-color: FFE498;" text="Canciones">
             <content>
               <AnchorPane blendMode="MULTIPLY" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: FFE498;">
                      <children>
@@ -50,6 +66,24 @@
                               <TableColumn fx:id="StyleColumn" editable="false" prefWidth="295.0" resizable="false" style="-fx-background-color: FFE498; -fx-padding: 7;" text="Estilo" />
                           </columns>
                         </TableView>
+                        <Button layoutX="1089.0" layoutY="321.0" mnemonicParsing="false" onAction="#Play" prefHeight="34.0" prefWidth="43.0" style="-fx-background-color: orange;" text="⏯ ">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Text layoutX="1070.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prueba del play" />
+                        <Button layoutX="1089.0" layoutY="421.0" mnemonicParsing="false" onAction="#Stop" prefHeight="35.0" prefWidth="43.0" style="-fx-background-color: orange;" text="◼">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Text layoutX="1069.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prueba del stop" />
                      </children>
                   </AnchorPane>
             </content>

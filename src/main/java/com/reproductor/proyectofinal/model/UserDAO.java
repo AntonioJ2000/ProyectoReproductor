@@ -64,9 +64,6 @@ public class UserDAO extends User implements I_UserDAO {
         }   
     }
 
-    
-  
-
     @Override
     public void setNombre(String nombre) {
         super.setNombre(nombre);     
@@ -214,4 +211,20 @@ public class UserDAO extends User implements I_UserDAO {
         return result;
     }
     
+    public static boolean deleteUser(){
+        boolean result = false;
+        if (MainUser.getIDUsuario() > 0) {
+            try {
+               java.sql.Connection csql = ConnectionUtil.getConnection();
+                String q = "DELETE FROM Usuario WHERE IDUsuario = " + MainUser.getIDUsuario();
+
+                PreparedStatement ps = csql.prepareStatement(q);
+                ps.executeUpdate();
+                result = true;
+            } catch (SQLException ex) {
+                Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return result;
+    }
 }

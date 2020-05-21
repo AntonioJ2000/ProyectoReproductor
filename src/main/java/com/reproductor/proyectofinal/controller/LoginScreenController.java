@@ -58,7 +58,9 @@ public class LoginScreenController implements Initializable {
 
     public void Login() {
         String nombreUsuario = this.nombreUsuario.getText();
+        this.nombreUsuario.clear();
         String passwordUsuario = this.passwordUsuario.getText();
+        this.passwordUsuario.clear();
         if(UserDAO.Login(nombreUsuario, passwordUsuario)){
             OpenMainWindow();
         }else{
@@ -97,7 +99,6 @@ public class LoginScreenController implements Initializable {
     }
 
     public void OpenMainWindow() {
-
         //Abrimos la mainscreen.
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("MainScreen.fxml"));
         Parent modal;
@@ -151,7 +152,7 @@ public class LoginScreenController implements Initializable {
         alert.showAndWait();
     }
 
-    public void showConfirm(String nombre) {
+    public void showInfo(String nombre) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Acción realizada correctamente");
         alert.setHeaderText("¡El usuario " + nombre + " ha sido creado correctamente!");
