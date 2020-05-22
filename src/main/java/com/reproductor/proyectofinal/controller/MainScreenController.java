@@ -27,6 +27,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class MainScreenController implements Initializable{
@@ -69,6 +71,9 @@ public class MainScreenController implements Initializable{
     private TableColumn<Song, String> StyleColumn;
     
     @FXML
+    private ImageView imageview2;
+    
+    @FXML
     private TextField filtraCancion;
    
     @FXML
@@ -89,8 +94,11 @@ public class MainScreenController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    Image image2 = new Image("file:utils\\oldicon.png");
+        imageview2.setImage(image2);
         
     this.data = FXCollections.observableArrayList();
+    
     List<Song> misCanciones = SongDAO.selectAll();
     data.addAll(misCanciones);
     
@@ -223,7 +231,7 @@ public class MainScreenController implements Initializable{
     public void Play(){
         Reproductor miReproductor = Reproductor.getInstance();
         try {
-            miReproductor.Play("musicaReproductor\\1.mp3");
+            miReproductor.Play("utils\\musicaReproductor\\1.mp3");
         } catch (Exception ex) {
             Logger.getLogger(MainScreenController.class.getName()).log(Level.SEVERE, null, ex);
         }

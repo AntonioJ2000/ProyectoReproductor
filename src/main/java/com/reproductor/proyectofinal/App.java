@@ -23,7 +23,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("LoginScreen"), 500, 600);
         stage.setScene(scene);
         rootstage.setTitle("Music 24/7");
-        stage.getIcons().add(new Image("file:images\\icon.png"));
+        stage.getIcons().add(new Image("file:utils\\icon.png"));
         stage.show();
     }
 
