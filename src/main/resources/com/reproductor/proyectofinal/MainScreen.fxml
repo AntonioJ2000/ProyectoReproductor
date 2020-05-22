@@ -115,6 +115,16 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Text>
+                        <Text layoutX="29.0" layoutY="663.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si no tienes nada mejor que hacer que escuchar la música de la aplicación, te recomiendo probar la aplicación                          de mi amigo Ciscu.">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#44c1ff" layoutX="761.0" layoutY="663.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PIXELS BANK">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Text>
                      </children>
                   </AnchorPane>
               </content>
