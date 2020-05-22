@@ -37,7 +37,7 @@ public class RegisterScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
     }
 
     public void setStage(Stage myStage) {

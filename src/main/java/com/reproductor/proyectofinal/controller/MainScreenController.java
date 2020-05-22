@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -66,6 +67,9 @@ public class MainScreenController implements Initializable{
    
     @FXML
     private TableColumn<Song, String> StyleColumn;
+    
+    @FXML
+    private TextField filtraCancion;
    
     @FXML
     private TextField nombre;
@@ -85,8 +89,6 @@ public class MainScreenController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    Reproductor miReproductor = Reproductor.getInstance();
-    
         
     this.data = FXCollections.observableArrayList();
     List<Song> misCanciones = SongDAO.selectAll();
@@ -103,7 +105,7 @@ public class MainScreenController implements Initializable{
     this.StyleColumn.setCellValueFactory(eachRowData -> {
             return new SimpleObjectProperty<>(eachRowData.getValue().getEstilo());
     });
-
+    
     table.setItems(data);
     
     }
@@ -153,6 +155,30 @@ public class MainScreenController implements Initializable{
         }
     }
     
+    public void searchSong(){
+        String cancion = this.filtraCancion.getText();
+        if(cancion!=null){
+            List<Song> misCancionesFiltradas = SongDAO.selectAll(cancion);
+            data.clear();
+            this.data.addAll(misCancionesFiltradas);
+            
+        }
+       
+        this.titleColumn.setCellValueFactory(eachRowData -> {
+            return new SimpleObjectProperty<>(eachRowData.getValue().getTitulo());
+         });
+    
+        this.ProducerColumn.setCellValueFactory(eachRowData -> {
+            return new SimpleObjectProperty<>(eachRowData.getValue().getNombreProductor());
+         });
+
+        this.StyleColumn.setCellValueFactory(eachRowData -> {
+            return new SimpleObjectProperty<>(eachRowData.getValue().getEstilo());
+        });
+    
+         table.setItems(data);    
+    }
+
     public boolean showConfirm(String nombre) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirme la acción");
@@ -180,7 +206,7 @@ public class MainScreenController implements Initializable{
     public void Play(){
         Reproductor miReproductor = Reproductor.getInstance();
         try {
-            miReproductor.Play("MusicaReproductor\\1.mp3");
+            miReproductor.Play("musicaReproductor\\1.mp3");
         } catch (Exception ex) {
             Logger.getLogger(MainScreenController.class.getName()).log(Level.SEVERE, null, ex);
         }

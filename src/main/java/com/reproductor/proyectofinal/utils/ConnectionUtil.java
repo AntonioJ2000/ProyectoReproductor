@@ -38,6 +38,15 @@ public class ConnectionUtil {
         }
         return _conn;
     }
-    //Cerrar conexion <- falta.
+    
+    public static void closeConnection(){
+        if(_conn!=null){
+            try {
+                _conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ConnectionUtil.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
     
 }
