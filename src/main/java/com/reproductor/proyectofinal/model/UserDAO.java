@@ -1,6 +1,5 @@
 package com.reproductor.proyectofinal.model;
 
-import com.reproductor.proyectofinal.controller.LoginScreenController;
 import com.reproductor.proyectofinal.utils.ConnectionUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

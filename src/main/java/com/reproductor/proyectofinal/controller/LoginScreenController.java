@@ -1,19 +1,10 @@
 package com.reproductor.proyectofinal.controller;
 
 import com.reproductor.proyectofinal.App;
-import com.reproductor.proyectofinal.model.Reproductor;
-import com.reproductor.proyectofinal.model.Song;
-import com.reproductor.proyectofinal.model.SongDAO;
 import com.reproductor.proyectofinal.model.User;
 import com.reproductor.proyectofinal.model.UserDAO;
-import com.reproductor.proyectofinal.utils.ConnectionUtil;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;

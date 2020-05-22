@@ -1,7 +1,5 @@
 package com.reproductor.proyectofinal.model;
 
-import java.util.List;
-
 public class User {
    protected int IDUsuario;
    protected String Nombre;

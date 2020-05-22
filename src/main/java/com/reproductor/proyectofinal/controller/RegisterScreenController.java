@@ -1,7 +1,6 @@
 package com.reproductor.proyectofinal.controller;
 
 import com.reproductor.proyectofinal.model.User;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;

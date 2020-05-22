@@ -1,6 +1,5 @@
 package com.reproductor.proyectofinal;
 
-import com.reproductor.proyectofinal.model.Reproductor;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,8 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.scene.image.Image;
 
 public class App extends Application {
