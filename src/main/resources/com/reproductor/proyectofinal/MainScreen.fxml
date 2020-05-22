@@ -28,7 +28,7 @@
                               <TableColumn fx:id="StyleColumn" editable="false" prefWidth="295.0" resizable="false" style="-fx-background-color: FFE498; -fx-padding: 7;" text="Estilo" />
                           </columns>
                         </TableView>
-                        <Button layoutX="1009.0" layoutY="361.0" mnemonicParsing="false" onAction="#Play" prefHeight="34.0" prefWidth="43.0" style="-fx-background-color: orange;" text="⏯ ">
+                        <Button layoutX="1009.0" layoutY="489.0" mnemonicParsing="false" onAction="#Play" prefHeight="34.0" prefWidth="43.0" style="-fx-background-color: orange;" text="▶">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -36,8 +36,8 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Text layoutX="990.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prueba del play" />
-                        <Button layoutX="1170.0" layoutY="361.0" mnemonicParsing="false" onAction="#Stop" prefHeight="35.0" prefWidth="43.0" style="-fx-background-color: orange;" text="◼">
+                        <Text layoutX="990.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prueba del play" />
+                        <Button layoutX="1170.0" layoutY="569.0" mnemonicParsing="false" onAction="#Stop" prefHeight="35.0" prefWidth="43.0" style="-fx-background-color: orange;" text="◼">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -45,8 +45,18 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Text layoutX="1150.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prueba del stop" />
+                        <Text layoutX="1150.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prueba del stop" />
                         <TextField fx:id="filtraCancion" layoutX="1009.0" layoutY="40.0" onAction="#searchSong" prefHeight="25.0" prefWidth="212.0" promptText="Filtra canciones (por título)" style="-fx-border-color: orange;" />
+                        <Button layoutX="1008.0" layoutY="569.0" mnemonicParsing="false" onAction="#Resume" prefHeight="36.0" prefWidth="45.0" style="-fx-background-color: orange;" text="⏯">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button layoutX="1170.0" layoutY="489.0" mnemonicParsing="false" onAction="#Pause" prefHeight="35.0" prefWidth="44.0" style="-fx-background-color: orange;" text="| |">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Text layoutX="1146.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prueba del pause" />
+                        <Text layoutX="981.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prueba del resume" />
                      </children>
                   </AnchorPane>
             </content>
@@ -86,10 +96,29 @@
                            </font>
                         </Text>
                         <Text fill="RED" layoutX="604.0" layoutY="669.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Eliminar mi cuenta&quot;" />
+                        <Button layoutX="18.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeApp" style="-fx-background-color: orange;" text="Cerrar sesión" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab style="-fx-background-color: FFFBF2;" text="Acerca de...">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: FFFBF2;">
+                     <children>
+                        <Text layoutX="134.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si te ha gustado la aplicación o quieres aportar ideas para mejorarla, no dudes en escribirme en el siguiente correo:" textAlignment="CENTER" wrappingWidth="1012.080078125">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#ff6c00" layoutX="454.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="antoniojl2000@gmail.com">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

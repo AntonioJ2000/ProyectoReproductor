@@ -6,7 +6,7 @@
   <name>PruebaFinal</name>
   <version>1.0-SNAPSHOT</version>
   <build>
-    <finalName>Music 24/7</finalName>
+    <finalName>Music_24_7</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

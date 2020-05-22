@@ -4,7 +4,7 @@ import javazoom.jlgui.basicplayer.BasicPlayer;
 import java.io.File;
 
 
-public class Reproductor {
+public class Reproductor implements I_Reproductor{
     private static Reproductor instance = null;
     private BasicPlayer player;
     
@@ -19,23 +19,27 @@ public class Reproductor {
         return instance;
     }
      
+    @Override
     public void Play(String ruta) throws Exception {
-        abrirFichero(ruta);
+        openFile(ruta);
         player.play();
     }
     
-    private void abrirFichero(String ruta) throws Exception {
+    private void openFile(String ruta) throws Exception {
         player.open(new File(ruta));
     }
     
-    public void Pausa() throws Exception {
+    @Override
+    public void Pause() throws Exception {
         player.pause();
     }
     
-    public void Continuar() throws Exception {
+    @Override
+    public void Resume() throws Exception {
         player.resume();
     }
     
+    @Override
     public void Stop() throws Exception {
         player.stop();
     }

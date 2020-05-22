@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class SongDAO extends Song implements I_SongDAO{
+public class SongDAO extends Song{
     
     private boolean persist;
     

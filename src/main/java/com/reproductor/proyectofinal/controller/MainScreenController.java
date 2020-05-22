@@ -155,6 +155,12 @@ public class MainScreenController implements Initializable{
         }
     }
     
+    public void closeApp(){
+        myStage.close();
+    }
+    
+    
+    
     public void searchSong(){
         String cancion = this.filtraCancion.getText();
         if(cancion!=null){
@@ -163,7 +169,7 @@ public class MainScreenController implements Initializable{
             this.data.addAll(misCancionesFiltradas);
             
         }
-       
+        
         this.titleColumn.setCellValueFactory(eachRowData -> {
             return new SimpleObjectProperty<>(eachRowData.getValue().getTitulo());
          });
@@ -176,7 +182,10 @@ public class MainScreenController implements Initializable{
             return new SimpleObjectProperty<>(eachRowData.getValue().getEstilo());
         });
     
-         table.setItems(data);    
+        table.setItems(data);  
+        if(data.isEmpty()){
+            showInfo();
+        }
     }
 
     public boolean showConfirm(String nombre) {
@@ -202,6 +211,14 @@ public class MainScreenController implements Initializable{
         alert.showAndWait();
     }
     
+    public void showInfo() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("¡No encontrado!");
+        alert.setHeaderText("La canción introducida en el buscador no existe");
+        alert.setContentText("Por favor, introduzca el título de una canción que se encuentre en la base de datos.");
+        Optional<ButtonType> result = alert.showAndWait();
+    }
+    
     
     public void Play(){
         Reproductor miReproductor = Reproductor.getInstance();
@@ -222,4 +239,22 @@ public class MainScreenController implements Initializable{
         }
     }
 
+    public void Pause(){
+        Reproductor miReproductor = Reproductor.getInstance();
+        try {
+            miReproductor.Pause();
+        } catch (Exception ex) {
+            Logger.getLogger(MainScreenController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void Resume(){
+        Reproductor miReproductor = Reproductor.getInstance();
+        try {
+            miReproductor.Resume();
+        } catch (Exception ex) {
+            Logger.getLogger(MainScreenController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }
