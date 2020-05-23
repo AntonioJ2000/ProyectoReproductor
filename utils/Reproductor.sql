@@ -45,7 +45,7 @@ create table consume
 	
 	) Engine = innoDB;
 
-insert into USUARIO (Nombre, Password, Pais, estiloFav, artistaFav, ListaAmigos) values ("Antonio","prueba","España","EDM","Martin Garrix");
+insert into USUARIO (Nombre, Password, Pais, estiloFav, artistaFav) values ("Antonio","prueba","España","EDM","Martin Garrix");
 
 
 
