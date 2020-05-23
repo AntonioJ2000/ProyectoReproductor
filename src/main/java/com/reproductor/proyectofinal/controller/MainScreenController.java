@@ -26,13 +26,10 @@ import javafx.stage.Stage;
 
 public class MainScreenController implements Initializable{
 
-    //Comunicar info a mi padre
     private LoginScreenController parent;
 
-    //Recibir info de mi padre
     private Object params;
 
-    //poder autocerrarme
     private Stage myStage;
     
     
@@ -111,7 +108,9 @@ public class MainScreenController implements Initializable{
     
     }
     
-    
+    /**
+     * Se encarga de editar el usuario con el que se inicia sesión.
+     */
     public void editUser(){
         String Nombre = this.nombre.getText();
         String Password = this.password.getText();
@@ -119,6 +118,7 @@ public class MainScreenController implements Initializable{
         String EstiloFav = this.estiloFav.getText();
         String ArtistaFav = this.artistaFav.getText();
        
+        //Compruebo si el campo está vacío o esta lleno, en caso de vacío, no cambio nada.
         if(Nombre.trim().length()>0){
         UserDAO.MainUser.setNombre(Nombre); 
         nombre.clear();
@@ -145,6 +145,10 @@ public class MainScreenController implements Initializable{
         
     }
 
+    /**
+     * Borra el perfil del usuario con el que se haya iniciado sesión y te devuelve al log in.
+     * Si no se ha podido borrar, muestra un error.
+     */
     public void deleteProfile(){
         if(showConfirm(UserDAO.MainUser.getNombre())){
             UserDAO.deleteUser();
@@ -161,7 +165,9 @@ public class MainScreenController implements Initializable{
     }
     
     
-    
+    /**
+     * Filtra las canciones por el titulo introducido en el TextField correspondiente.
+     */
     public void searchSong(){
         String cancion = this.filtraCancion.getText();
         if(cancion!=null){
@@ -220,7 +226,10 @@ public class MainScreenController implements Initializable{
         Optional<ButtonType> result = alert.showAndWait();
     }
     
-    
+    /**
+     * Se encarga de reproducir la canción guardada como 1 en local (Martin Garrix - Higher Ground).
+     * Si se cambiase el 1 por cualquier otro, saldría otra canción.
+     */
     public void Play(){
         Reproductor miReproductor = Reproductor.getInstance();
         try {
@@ -231,6 +240,9 @@ public class MainScreenController implements Initializable{
         
     }
     
+    /**
+     * Se encarga de parar por completo el reproductor.
+     */
     public void Stop(){
         Reproductor miReproductor = Reproductor.getInstance();
         try {
@@ -239,7 +251,10 @@ public class MainScreenController implements Initializable{
             Logger.getLogger(MainScreenController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    /**
+     * Se encarga de pausar la cancion. Puede ser continuada con Resume();
+     */
     public void Pause(){
         Reproductor miReproductor = Reproductor.getInstance();
         try {
@@ -249,6 +264,9 @@ public class MainScreenController implements Initializable{
         }
     }
     
+    /**
+     * Se encarga de seguir reproduciendo la canción en cuestión.
+     */
     public void Resume(){
         Reproductor miReproductor = Reproductor.getInstance();
         try {

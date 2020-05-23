@@ -30,11 +30,20 @@ public class SongDAO extends Song{
         nombreProductor = s.nombreProductor;
     }
     
+    /**
+     * Sirve para obtener la información de la base de datos.
+     * @return La lista con las canciones existentes.
+     */
     public static List<Song> selectAll(){
         return selectAll("");
         
     }
     
+    /**
+     * Obtiene la información de la base de datos.
+     * @param pattern El valor del patrón de busqueda.
+     * @return La lista que cumple el patrón.
+     */
     public static List<Song> selectAll(String pattern){
         List<Song> result = new ArrayList<>();
         

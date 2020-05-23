@@ -25,13 +25,10 @@ public class RegisterScreenController implements Initializable {
     @FXML
     private TextField artistaFavorito;
 
-    //Comunicar info a mi padre
     private LoginScreenController parent;
 
-    //Recibir info de mi padre
     private Object params;
 
-    //poder autocerrarme
     private Stage myStage;
 
     @Override
@@ -51,6 +48,9 @@ public class RegisterScreenController implements Initializable {
         params = p;
     }
 
+    /**
+     * Añade el usuario registrado a la base de datos.
+     */
     @FXML
     private void add() {
         String nombre = this.Nombre.getText();
@@ -80,6 +80,9 @@ public class RegisterScreenController implements Initializable {
         }
     }
 
+    /**
+     * Cancela el proceso de registro.
+     */
     @FXML
     private void cancel() {
         if (this.parent != null) {

@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 public class UserDAO extends User{
 
-    
+    //Es un atributo que sirve para acceder a la información del usuario principal desde cualquier clase con facilidad.
     public static UserDAO MainUser;
 
     public UserDAO() {
@@ -93,7 +93,10 @@ public class UserDAO extends User{
         save();
     }
 
-
+    /**
+     * Se encarga de hacer la función correspondiente (UPDATE | DELETE) cuando es invocada.
+     * @return 0 si es que el usuario no se puede guardar o actualizar.
+     */
     public int save() {
         int result = 0;
         try {
@@ -111,7 +114,6 @@ public class UserDAO extends User{
             
             result = ps.executeUpdate();
         } else {
-
             //INSERT
             String q = "INSERT INTO Usuario(IDUsuario, Nombre, Password, Pais, estiloFav, artistaFav) VALUES(NULL,?,?,?,?,?)";
             PreparedStatement ps = csql.prepareStatement(q, Statement.RETURN_GENERATED_KEYS);
@@ -137,10 +139,19 @@ public class UserDAO extends User{
         return result;
     }
     
+    /**
+     * Sirve para obtener la información de la base de datos.
+     * @return La lista con los usuarios existentes.
+     */
     public static List<User> selectAll(){
         return selectAll("");
     }
     
+    /**
+     * Obtiene la información de la base de datos.
+     * @param pattern El valor del patrón de busqueda.
+     * @return La lista que cumple el patrón.
+     */
     public static List<User> selectAll(String pattern){
         List<User> result = new ArrayList<>();
         
@@ -177,6 +188,12 @@ public class UserDAO extends User{
         return result;
     }
     
+    /**
+     * Se encarga de hacer el login mediante una query en la base de datos.
+     * @param nombreUsuario El nombre del usuario introducido
+     * @param passwordUsuario La contraseña introducida
+     * @return true si existe en la base de datos y false si no.
+     */
     public static boolean Login(String nombreUsuario, String passwordUsuario){
         boolean result = false;
         try {
@@ -198,6 +215,10 @@ public class UserDAO extends User{
                     mainUser.setPais(rs.getString("Pais"));
                     mainUser.setEstiloFavorito(rs.getString("estiloFav"));
                     mainUser.setArtistaFav(rs.getString("artistaFav"));   
+                    /*
+                    Creo el usuario principal y lo paso mediante el constructor personalizado
+                    de User -> UserDAO junto a los valores que se atribuyen al usuario registrado.
+                    */
                     UserDAO daoAux = new UserDAO(mainUser);
                     MainUser = daoAux;
                     result = true;
@@ -210,6 +231,11 @@ public class UserDAO extends User{
         return result;
     }
     
+    
+    /**
+     * Se encarga de borrar el usuario de la base de datos.
+     * @return true si se ha borrado, false si no.
+     */
     public static boolean deleteUser(){
         boolean result = false;
         if (MainUser.getIDUsuario() > 0) {

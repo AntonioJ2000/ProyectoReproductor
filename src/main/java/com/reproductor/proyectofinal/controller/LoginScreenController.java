@@ -47,6 +47,9 @@ public class LoginScreenController implements Initializable {
         this.data = FXCollections.observableArrayList();
     }
 
+    /**
+     * Se encarga de llamar a la funcion login de UserDAO, si el boolean da true, inicia correctamente.
+     */
     public void Login() {
         String nombreUsuario = this.nombreUsuario.getText();
         this.nombreUsuario.clear();
@@ -59,6 +62,9 @@ public class LoginScreenController implements Initializable {
         }
     }
 
+    /**
+     * Se encarga de abrir la ventana de registro
+     */
     public void OpenRegisterWindow() {
         //Abrimos la ventana de registro.
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("RegisterScreen.fxml"));
@@ -89,6 +95,9 @@ public class LoginScreenController implements Initializable {
         }
     }
 
+    /**
+     * Se encarga de abrir la ventana principal
+     */
     public void OpenMainWindow() {
         //Abrimos la mainscreen.
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("MainScreen.fxml"));
